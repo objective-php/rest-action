@@ -1,0 +1,29 @@
+{
+    "name": "objective-php/rest-action",
+    "description": "Rest(ful) aware PSR-15 Middleware library",
+    "type": "library",
+    "keywords": [
+        "psr-15", "action", "rest", "objective php"
+    ],
+    "homepage": "https://github.com/objective-php/rest-action",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Flavien Rodrigues",
+            "email": "rodrigues.flavien@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "~7.2",
+        "objective-php/http-action": "^1.0"
+    },
+    "require-dev": {
+        "codeception/codeception": "^2.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "ObjectivePHP\\Middleware\\Action\\RestAction\\": "src/"
+        }
+    }
+}
