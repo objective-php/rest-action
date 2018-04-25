@@ -39,7 +39,7 @@ class ApiVersionExtractorTest extends Unit
             ->getMockForAbstractClass();
 
         $request->method('hasHeader')->willReturn(true);
-        $request->method('getHeader')->willReturn('12.3.56');
+        $request->method('getHeader')->willReturn(['12.3.56', 'dummy']);
 
         $this->assertEquals('12.3.56', $extractor->extractFrom($request));
     }

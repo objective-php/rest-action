@@ -25,14 +25,14 @@ class ApiVersionExtractor implements RequestedVersionExtractorInterface
     {
         $version = null;
 
+        // search in headers first
+        if ($request->hasHeader($this->versionHeader)) {
+            $version = $request->getHeader($this->versionHeader)[0];
+        }
+
         // search for version in Request attributes
         if ($request->getAttribute($this->versionAttribute)) {
             $version = $request->getAttribute($this->versionAttribute);
-        }
-
-        // search in headers
-        if ($request->hasHeader($this->versionHeader)) {
-            $version = $request->getHeader($this->versionHeader);
         }
 
         $parser = new VersionParser();
