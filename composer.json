@@ -15,7 +15,7 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "php": "~7.2",
+        "php": "~7.0",
         "objective-php/http-action": "^1.0",
         "composer/semver": "^1.4",
         "aura/accept": "^2.2",
