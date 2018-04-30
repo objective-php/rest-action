@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "eb037d68dac6c976d299ff72ea92f1a7",
+    "content-hash": "70e21ee341a04dbb7747b8421c60f0bd",
     "packages": [
         {
             "name": "aura/accept",
@@ -282,16 +282,16 @@
         },
         {
             "name": "objective-php/config",
-            "version": "v2.0.6",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/objective-php/config.git",
-                "reference": "a30ec06cddc2ee45774b803fa2ccf71066784855"
+                "reference": "d0d4cd9db8b38fe81135d870687bc57b411bf845"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/objective-php/config/zipball/a30ec06cddc2ee45774b803fa2ccf71066784855",
-                "reference": "a30ec06cddc2ee45774b803fa2ccf71066784855",
+                "url": "https://api.github.com/repos/objective-php/config/zipball/d0d4cd9db8b38fe81135d870687bc57b411bf845",
+                "reference": "d0d4cd9db8b38fe81135d870687bc57b411bf845",
                 "shasum": ""
             },
             "require": {
@@ -325,7 +325,7 @@
                 "config",
                 "objective-php"
             ],
-            "time": "2018-04-25T15:36:44+00:00"
+            "time": "2018-04-26T09:50:11+00:00"
         },
         {
             "name": "objective-php/http-action",
@@ -519,16 +519,16 @@
         },
         {
             "name": "objective-php/services-factory",
-            "version": "v2.0.4",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/objective-php/services-factory.git",
-                "reference": "ae415f282669c06fc9265223236a687c48f82c3a"
+                "reference": "3f1efbea4b1aaab675945ca1afd560b914115259"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/objective-php/services-factory/zipball/ae415f282669c06fc9265223236a687c48f82c3a",
-                "reference": "ae415f282669c06fc9265223236a687c48f82c3a",
+                "url": "https://api.github.com/repos/objective-php/services-factory/zipball/3f1efbea4b1aaab675945ca1afd560b914115259",
+                "reference": "3f1efbea4b1aaab675945ca1afd560b914115259",
                 "shasum": ""
             },
             "require": {
@@ -568,7 +568,7 @@
                 "objective php",
                 "services"
             ],
-            "time": "2018-04-25T09:57:53+00:00"
+            "time": "2018-04-26T12:09:55+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -3368,9 +3368,18 @@
             "time": "2017-04-07T12:08:54+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "v2.0.0",
+            "alias_normalized": "2.0.0.0",
+            "version": "9999999-dev",
+            "package": "objective-php/services-factory"
+        }
+    ],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "objective-php/services-factory": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -30,14 +30,23 @@ class ApiVersionExtractor implements RequestedVersionExtractorInterface
             $version = $request->getHeader($this->versionHeader)[0];
         }
 
+        $version = $request->getQueryParams()['version'] ?? $version;
+
         // search for version in Request attributes
         if ($request->getAttribute($this->versionAttribute)) {
             $version = $request->getAttribute($this->versionAttribute);
         }
 
-        $parser = new VersionParser();
+        if (empty($version)) {
+            throw new VersionNotFoundException(<<<MESSAGE
+Unable to find the version. The version is read by order of priority in the request's attribute "API-VERSION", then in
+the request's query string "version" and at last in the request's header "API-VERSION".
+MESSAGE
+                , 500);
+        }
+
         try {
-            $parser->parseConstraints($version);
+            (new VersionParser())->parseConstraints($version);
         } catch (\UnexpectedValueException $e) {
             throw new VersionNotFoundException(
                 sprintf("Unable to understand the given version `%s`", $version),

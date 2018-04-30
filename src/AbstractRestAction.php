@@ -7,11 +7,13 @@ use Composer\Semver\Semver;
 use ObjectivePHP\Middleware\Action\RestAction\Exception\InternalServerErrorException;
 use ObjectivePHP\Middleware\Action\RestAction\Exception\NotImplementedException;
 use ObjectivePHP\Middleware\Action\RestAction\Exception\VersionNotFoundException;
+use ObjectivePHP\Middleware\Action\RestAction\RequestedVersionExtractor\ApiVersionExtractor;
 use ObjectivePHP\Middleware\Action\RestAction\RequestedVersionExtractor\RequestedVersionExtractorInterface;
 use ObjectivePHP\Middleware\Action\RestAction\Serializer\SerializerInterface;
 use ObjectivePHP\Middleware\HttpAction\HttpAction;
 use ObjectivePHP\ServicesFactory\Exception\ServicesFactoryException;
 use ObjectivePHP\ServicesFactory\ServicesFactoryAccessorsTrait;
+use ObjectivePHP\ServicesFactory\ServicesFactoryAwareInterface;
 use ObjectivePHP\ServicesFactory\ServicesFactoryProviderInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -22,7 +24,10 @@ use Zend\Diactoros\Response;
  * Class RestAction
  * @package ObjectivePHP\Middleware\Action\RestAction
  */
-abstract class AbstractRestAction extends HttpAction implements RestActionInterface, ServicesFactoryProviderInterface
+abstract class AbstractRestAction extends HttpAction implements
+    RestActionInterface,
+    ServicesFactoryProviderInterface,
+    ServicesFactoryAwareInterface
 {
     use ServicesFactoryAccessorsTrait;
 
@@ -114,11 +119,14 @@ abstract class AbstractRestAction extends HttpAction implements RestActionInterf
         $accept = $accept_factory->newInstance();
         $contentType = $accept->negotiateMedia($this->getAvailableMedias());
 
-        $serializer = $this->getSerializer($contentType->getValue());
+        $contentType = $contentType ? $contentType->getValue() : $this->getAvailableMedias()[0];
+
+        $serializer = $this->getSerializer($contentType);
+
         $body = $serializer->serialize($resource);
 
         $response = new Response();
-        $response = $response->withAddedHeader('ContentType', $contentType->getValue());
+        $response = $response->withAddedHeader('ContentType', $contentType);
 
         $response->getBody()->write($body);
         $response->getBody()->rewind();
@@ -149,6 +157,10 @@ abstract class AbstractRestAction extends HttpAction implements RestActionInterf
      */
     public function getRequestedVersionExtractor(): RequestedVersionExtractorInterface
     {
+        if (is_null($this->requestedVersionExtractor)) {
+            $this->requestedVersionExtractor = new ApiVersionExtractor();
+        }
+
         return $this->requestedVersionExtractor;
     }
 

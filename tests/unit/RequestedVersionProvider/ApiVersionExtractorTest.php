@@ -47,9 +47,40 @@ class ApiVersionExtractorTest extends Unit
     /**
      * @test
      */
+    public function extractorMustLookInRequestQueryString()
+    {
+        $extractor = new ApiVersionExtractor();
+
+        $request = $this->getMockBuilder(ServerRequestInterface::class)
+            ->setMethods(['getQueryParams'])
+            ->getMockForAbstractClass();
+
+        $request->method('getQueryParams')->willReturn(['version' => '1.2.3']);
+
+        $this->assertEquals('1.2.3', $extractor->extractFrom($request));
+    }
+
+    /**
+     * @test
+     */
     public function extractorMustThrowExceptionIfNoSemverVersionFound()
     {
         $this->expectException(VersionNotFoundException::class);
         (new ApiVersionExtractor())->extractFrom($this->getMockForAbstractClass(ServerRequestInterface::class));
+    }
+
+    /**
+     * @test
+     */
+    public function extractorMustThrowExceptionIfNoSemverVersionWasValid()
+    {
+        $request = $this->getMockBuilder(ServerRequestInterface::class)
+            ->setMethods(['getAttribute'])
+            ->getMockForAbstractClass();
+
+        $request->method('getAttribute')->willReturn('test');
+
+        $this->expectException(VersionNotFoundException::class);
+        (new ApiVersionExtractor())->extractFrom($request);
     }
 }
