@@ -19,7 +19,7 @@
         "objective-php/http-action": "^1.0",
         "composer/semver": "^1.4",
         "aura/accept": "^2.2",
-        "objective-php/services-factory": "dev-master as v2.0.0"
+        "objective-php/services-factory": "^2.0"
     },
     "require-dev": {
         "codeception/codeception": "^2.4"
