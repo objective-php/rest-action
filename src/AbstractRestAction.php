@@ -47,6 +47,11 @@ abstract class AbstractRestAction extends HttpAction implements
     protected $serializers = [];
 
     /**
+     * @var string
+     */
+    protected $matchedVersion;
+
+    /**
      * @param ServerRequestInterface $request
      * @param RequestHandlerInterface $handler
      * @return ResponseInterface
@@ -90,7 +95,9 @@ abstract class AbstractRestAction extends HttpAction implements
         }
 
         // Building the Endpoint
-        $fullyQualifiedClassName = $this->endpoints[array_pop($endpoints)];
+        $this->matchedVersion = array_pop($endpoints);
+
+        $fullyQualifiedClassName = $this->endpoints[$this->matchedVersion];
         if (!class_exists($fullyQualifiedClassName)) {
             throw new InternalServerErrorException("Unable to create the endpoint");
         }
@@ -127,6 +134,8 @@ abstract class AbstractRestAction extends HttpAction implements
 
         $response = new Response();
         $response = $response->withAddedHeader('ContentType', $contentType);
+
+        $response = $response->withAddedHeader('API-MATCHED-VERSION', $this->matchedVersion);
 
         $response->getBody()->write($body);
         $response->getBody()->rewind();
@@ -185,4 +194,13 @@ abstract class AbstractRestAction extends HttpAction implements
     {
         return $this->getRequestedVersionExtractor()->extractFrom($request);
     }
+
+    /**
+     * @return string
+     */
+    public function getMatchedVersion()
+    {
+        return $this->matchedVersion;
+    }
+
 }

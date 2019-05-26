@@ -15,14 +15,14 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "php": "~7.0",
-        "objective-php/http-action": "^1.0",
-        "composer/semver": "^1.4",
-        "aura/accept": "^2.2",
-        "objective-php/services-factory": "^2.0"
+        "php": "~7.1",
+        "objective-php/http-action": "~1.0",
+        "composer/semver": "~1.4",
+        "aura/accept": "~2.2",
+        "objective-php/services-factory": "~2.0"
     },
     "require-dev": {
-        "codeception/codeception": "^2.4"
+        "codeception/codeception": "~2.4"
     },
     "autoload": {
         "psr-4": {
