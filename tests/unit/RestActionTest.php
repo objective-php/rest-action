@@ -60,10 +60,6 @@ class RestActionTest extends Unit
      */
     public function processMustThrowNotImplementedWhenMethodIsMissing($verb, $method)
     {
-        if ($verb == 'OPTIONS') {
-            $this->markTestSkipped("The options() method is provided in RestAction, it will always be ALLOWED.");
-        }
-
         $this->expectException(NotImplementedException::class);
 
         $dummyEndpoint = $this->getMockForAbstractClass(AbstractEndpoint::class);
@@ -142,7 +138,6 @@ class RestActionTest extends Unit
             'PUT' => ['PUT', 'put'],
             'DELETE' => ['DELETE', 'delete'],
             'CONNECT' => ['CONNECT', 'connect'],
-            'OPTIONS' => ['OPTIONS', 'options'],
             'TRACE' => ['TRACE', 'trace'],
         ];
     }
