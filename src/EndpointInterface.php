@@ -1,12 +1,12 @@
 <?php
 
-namespace ObjectivePHP\Middleware\Action\RestAction;
+namespace ObjectivePHP\RestAction;
 
 use Psr\Http\Message\ServerRequestInterface;
 
 /**
  * Interface EndpointInterface
- * @package ObjectivePHP\Middleware\Action\RestAction
+ * @package ObjectivePHP\RestAction
  */
 interface EndpointInterface
 {

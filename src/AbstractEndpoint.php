@@ -1,15 +1,15 @@
 <?php
 
-namespace ObjectivePHP\Middleware\Action\RestAction;
+namespace ObjectivePHP\RestAction;
 
-use ObjectivePHP\Middleware\Action\RestAction\Exception\NotImplementedException;
+use ObjectivePHP\RestAction\Exception\NotImplementedException;
 use Psr\Http\Message\ServerRequestInterface;
 use ReflectionMethod;
 use Zend\Diactoros\Response;
 
 /**
  * Class AbstractEndpoint
- * @package ObjectivePHP\Middleware\Action\RestAction
+ * @package ObjectivePHP\RestAction
  */
 abstract class AbstractEndpoint implements EndpointInterface
 {

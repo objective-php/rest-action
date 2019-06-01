@@ -1,13 +1,13 @@
 <?php
 
-namespace ObjectivePHP\Middleware\Action\RestAction\RequestedVersionExtractor;
+namespace ObjectivePHP\RestAction\RequestedVersionExtractor;
 
-use ObjectivePHP\Middleware\Action\RestAction\Exception\VersionNotFoundException;
+use ObjectivePHP\RestAction\Exception\VersionNotFoundException;
 use Psr\Http\Message\ServerRequestInterface;
 
 /**
  * Interface RequestedVersionProvider
- * @package ObjectivePHP\Middleware\Action\RestAction
+ * @package ObjectivePHP\RestAction
  */
 interface RequestedVersionExtractorInterface
 {

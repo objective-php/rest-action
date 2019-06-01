@@ -1,10 +1,10 @@
 <?php
 
-namespace ObjectivePHP\Middleware\Action\RestAction\Exception;
+namespace ObjectivePHP\RestAction\Exception;
 
 /**
  * Class RestActionException
- * @package ObjectivePHP\Middleware\Action\RestAction\Exception
+ * @package ObjectivePHP\RestAction\Exception
  */
 class RestActionException extends \Exception
 {

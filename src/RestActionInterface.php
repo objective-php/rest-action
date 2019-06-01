@@ -1,13 +1,13 @@
 <?php
 
-namespace ObjectivePHP\Middleware\Action\RestAction;
+namespace ObjectivePHP\RestAction;
 
-use ObjectivePHP\Middleware\Action\RestAction\Serializer\SerializerInterface;
+use ObjectivePHP\RestAction\Serializer\SerializerInterface;
 use Psr\Http\Server\MiddlewareInterface;
 
 /**
  * Interface RestActionInterface
- * @package ObjectivePHP\Middleware\Action\RestAction
+ * @package ObjectivePHP\RestAction
  */
 interface RestActionInterface extends MiddlewareInterface
 {

@@ -1,16 +1,16 @@
 <?php
 
-namespace Test\ObjectivePHP\Middleware\Action\RestAction;
+namespace Test\ObjectivePHP\RestAction;
 
 use Codeception\Test\Unit;
-use ObjectivePHP\Middleware\Action\RestAction\AbstractEndpoint;
-use ObjectivePHP\Middleware\Action\RestAction\Exception\NotImplementedException;
+use ObjectivePHP\RestAction\AbstractEndpoint;
+use ObjectivePHP\RestAction\Exception\NotImplementedException;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
 /**
  * Class EndpointTest
- * @package Test\ObjectivePHP\Middleware\Action\RestAction
+ * @package Test\ObjectivePHP\RestAction
  */
 class EndpointTest extends Unit
 {

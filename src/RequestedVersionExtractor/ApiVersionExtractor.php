@@ -1,14 +1,14 @@
 <?php
 
-namespace ObjectivePHP\Middleware\Action\RestAction\RequestedVersionExtractor;
+namespace ObjectivePHP\RestAction\RequestedVersionExtractor;
 
 use Composer\Semver\VersionParser;
-use ObjectivePHP\Middleware\Action\RestAction\Exception\VersionNotFoundException;
+use ObjectivePHP\RestAction\Exception\VersionNotFoundException;
 use Psr\Http\Message\ServerRequestInterface;
 
 /**
  * Class ApiVersionExtractor
- * @package ObjectivePHP\Middleware\Action\RestAction\RequestedVersionProvider
+ * @package ObjectivePHP\RestAction\RequestedVersionProvider
  */
 class ApiVersionExtractor implements RequestedVersionExtractorInterface
 {

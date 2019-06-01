@@ -1,10 +1,10 @@
 <?php
 
-namespace ObjectivePHP\Middleware\Action\RestAction\Serializer;
+namespace ObjectivePHP\RestAction\Serializer;
 
 /**
  * Class JsonSerializer
- * @package ObjectivePHP\Middleware\Action\RestAction\Serializer
+ * @package ObjectivePHP\RestAction\Serializer
  */
 class JsonSerializer implements SerializerInterface
 {

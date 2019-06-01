@@ -1,15 +1,15 @@
 <?php
 
-namespace ObjectivePHP\Middleware\Action\RestAction;
+namespace ObjectivePHP\RestAction;
 
 use Aura\Accept\AcceptFactory;
 use Composer\Semver\Semver;
-use ObjectivePHP\Middleware\Action\RestAction\Exception\InternalServerErrorException;
-use ObjectivePHP\Middleware\Action\RestAction\Exception\NotImplementedException;
-use ObjectivePHP\Middleware\Action\RestAction\Exception\VersionNotFoundException;
-use ObjectivePHP\Middleware\Action\RestAction\RequestedVersionExtractor\ApiVersionExtractor;
-use ObjectivePHP\Middleware\Action\RestAction\RequestedVersionExtractor\RequestedVersionExtractorInterface;
-use ObjectivePHP\Middleware\Action\RestAction\Serializer\SerializerInterface;
+use ObjectivePHP\RestAction\Exception\InternalServerErrorException;
+use ObjectivePHP\RestAction\Exception\NotImplementedException;
+use ObjectivePHP\RestAction\Exception\VersionNotFoundException;
+use ObjectivePHP\RestAction\RequestedVersionExtractor\ApiVersionExtractor;
+use ObjectivePHP\RestAction\RequestedVersionExtractor\RequestedVersionExtractorInterface;
+use ObjectivePHP\RestAction\Serializer\SerializerInterface;
 use ObjectivePHP\Middleware\HttpAction\HttpAction;
 use ObjectivePHP\ServicesFactory\Exception\ServicesFactoryException;
 use ObjectivePHP\ServicesFactory\ServicesFactoryAccessorsTrait;
@@ -22,7 +22,7 @@ use Zend\Diactoros\Response;
 
 /**
  * Class RestAction
- * @package ObjectivePHP\Middleware\Action\RestAction
+ * @package ObjectivePHP\RestAction
  */
 abstract class AbstractRestAction extends HttpAction implements
     RestActionInterface,

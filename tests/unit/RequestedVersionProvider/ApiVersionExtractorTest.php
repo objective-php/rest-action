@@ -1,9 +1,9 @@
 <?php
-namespace Test\ObjectivePHP\Middleware\Action\RestAction\RequestedVersionProvider;
+namespace Test\ObjectivePHP\RestAction\RequestedVersionProvider;
 
 use Codeception\Test\Unit;
-use ObjectivePHP\Middleware\Action\RestAction\Exception\VersionNotFoundException;
-use ObjectivePHP\Middleware\Action\RestAction\RequestedVersionExtractor\ApiVersionExtractor;
+use ObjectivePHP\RestAction\Exception\VersionNotFoundException;
+use ObjectivePHP\RestAction\RequestedVersionExtractor\ApiVersionExtractor;
 use Psr\Http\Message\ServerRequestInterface;
 
 /**
