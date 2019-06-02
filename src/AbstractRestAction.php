@@ -10,7 +10,7 @@ use ObjectivePHP\RestAction\Exception\VersionNotFoundException;
 use ObjectivePHP\RestAction\RequestedVersionExtractor\ApiVersionExtractor;
 use ObjectivePHP\RestAction\RequestedVersionExtractor\RequestedVersionExtractorInterface;
 use ObjectivePHP\RestAction\Serializer\SerializerInterface;
-use ObjectivePHP\Middleware\HttpAction\HttpAction;
+use ObjectivePHP\HttpAction\HttpAction;
 use ObjectivePHP\ServicesFactory\Exception\ServicesFactoryException;
 use ObjectivePHP\ServicesFactory\ServicesFactoryAccessorsTrait;
 use ObjectivePHP\ServicesFactory\ServicesFactoryAwareInterface;
